@@ -1,4 +1,5 @@
 ﻿using LibraryApp.Database;
+using LibraryApp.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApp.Controllers
@@ -11,7 +12,12 @@ namespace LibraryApp.Controllers
         [HttpGet]
         public Task<IActionResult> GetAll()
         {
-            //return Ok();
+            Book book = new Book
+            {
+            };
+
+            bookContext.Add(book);
+
             dynamic obj = new { name = "lewis" };
             return obj;
         }
