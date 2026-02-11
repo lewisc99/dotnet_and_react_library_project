@@ -12,13 +12,13 @@ namespace LibraryApp.Entities
         public int Copies { get; private set; }
         public int CopiesAvailable { get; private set; }
 
-        public int Category { get; private set; } 
+        public string Category { get; private set; } 
         public string Img { get; private set; }
 
         public Book() { }
 
 
-        internal Book(string title, string author, string description, int copies, int copiesAvailable, int category, string img)
+        internal Book(string title, string author, string description, int copies, int copiesAvailable, string category, string img)
         {
             Title = title;
             Author = author;
@@ -37,7 +37,7 @@ namespace LibraryApp.Entities
         private string _description = "";
         private int _copies = 0;
         private int _copiesAvailable = 0;
-        private int _category = 0;
+        private string _category = "";
         private string _img = "";
 
         public BookBuilder WithTitle(string title)
@@ -67,7 +67,7 @@ namespace LibraryApp.Entities
             return this;
         }
 
-        public BookBuilder WithCategory(int category)
+        public BookBuilder WithCategory(string category)
         {
             _category = category;
             return this;
