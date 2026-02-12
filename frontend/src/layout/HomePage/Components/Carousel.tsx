@@ -11,9 +11,9 @@ export const Carousel = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
-            const baseUrl: string = "http://localhost:8080/api/books";
+            const baseUrl: string = "https://localhost:7122/api/books";
 
-            const url:string = `${baseUrl}?page=0&size=9`;
+            const url:string = `${baseUrl}?page=1&pageSize=9`;
             const response = await fetch(url);
             if (!response.ok) {
               throw new Error("Something went wrong!");
@@ -21,7 +21,7 @@ export const Carousel = () => {
 
             const responseJson = await response.json();
 
-            const responseData = responseJson._embedded.books;
+            const responseData = responseJson.data;
             const loadedBooks: BookModel[] = [];
 
            
@@ -122,7 +122,7 @@ export const Carousel = () => {
       {/* Mobile */}
       <div className="d-lg-none mt-3">
         <div className="row d-flex justify-content-center align-items-center">
-          <ReturnBook book={books[7]} key={books[7].id} />
+          {/* <ReturnBook book={books[7]} key={books[7].id} /> */}
         </div>
       </div>
       <div className="homepage-carousel-title mt-3">
