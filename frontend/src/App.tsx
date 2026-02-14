@@ -2,6 +2,7 @@ import './App.css'
 import { HomePage } from './layout/HomePage/HomePage'
 import { Footer } from './layout/NavBarAndFooter/Footer'
 import { Navbar } from './layout/NavBarAndFooter/NavBar'
+import { SearchBooksPage } from './layout/SearchBooksPage/SearchBooksPage'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <div>
       <Navbar />
       <HomePage />
+      <SearchBooksPage />
       <Footer />
     </div>
   )

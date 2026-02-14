@@ -37,7 +37,7 @@ namespace LibraryApp.Configurations.Pagination
             int totalSize = query.Count();
 
             // Apply pagination
-            query = ApplyPagination(query, filter.Page, filter.PageSize);
+            query = ApplyPagination(query, filter.Page, filter.Size);
 
             // Execute the query to get paginated data
             List<T> paginatedData = query.ToList();
@@ -45,7 +45,8 @@ namespace LibraryApp.Configurations.Pagination
             return new PaginationModel<T>
             {
                 Data = paginatedData.ToList(),
-                TotalSize = totalSize
+                TotalSize = totalSize,
+                TotalPages = (int)Math.Ceiling((double)totalSize / filter.Size)
             };
         }
 
